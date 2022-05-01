@@ -24,7 +24,7 @@ export function isAuthenticated(
   try {
     //Validar o token
     const { sub } = verify(token, process.env.JWT_SECRET) as Payload;
-    console.log(sub);
+    req.user_id = sub; // @types - criado tipo - tsconfig linha33
     return next();
   } catch (err) {
     return res.status(401).end();
