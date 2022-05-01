@@ -1,4 +1,4 @@
-import { Request, Response } from "express";
+import { NextFunction, Request, Response } from "express";
 import { DatailUserService } from "../../services/user/DatailUserService";
 
 class DetailUserController {
