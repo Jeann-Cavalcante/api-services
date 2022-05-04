@@ -24,10 +24,6 @@ router.post(
   new CreateCategoryController().handle
 );
 
-router.get(
-  "/listCategory",
-  isAuthenticated,
-  new ListCategoryController().handle
-);
+router.get("/category", isAuthenticated, new ListCategoryController().handle);
 
 export { router };
