@@ -7,8 +7,6 @@ class DetailUserController {
     //Pegando id
     const user_id = req.user_id;
 
-    console.log(user_id);
-
     const datailUserService = new DatailUserService();
 
     const user = await datailUserService.execute(user_id);
