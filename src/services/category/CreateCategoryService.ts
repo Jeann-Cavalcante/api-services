@@ -13,7 +13,7 @@ class CreateCategoryService {
     //category vem do controller
     const categoryAlreadyExists = await prismaClient.category.findFirst({
       where: {
-        name: name,
+        name: name.toLowerCase(),
       },
     });
 
@@ -24,7 +24,7 @@ class CreateCategoryService {
 
     const category = await prismaClient.category.create({
       data: {
-        name: name,
+        name: name.toLowerCase(),
       },
       select: {
         id: true,

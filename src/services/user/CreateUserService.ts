@@ -18,7 +18,7 @@ class CreateUserService {
     // verificar se email já existe na plataforma
     const userAlreadyExists = await prismaClient.user.findFirst({
       where: {
-        email: email,
+        email: email.toLowerCase(),
       },
     });
 
@@ -32,8 +32,8 @@ class CreateUserService {
     //Registrando usuario
     const user = await prismaClient.user.create({
       data: {
-        name: name,
-        email: email,
+        name: name.toLowerCase(),
+        email: email.toLowerCase(),
         password: passwordHash,
       },
       //selecionando o que devolver
