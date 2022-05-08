@@ -6,6 +6,7 @@ import { CreateCategoryController } from "./controllers/category/CreateCategoryC
 import { ListCategoryController } from "./controllers/category/ListCategoryController";
 import { AddItemController } from "./controllers/order/AddItemController";
 import { CreateOrderController } from "./controllers/order/CreateOrderController";
+import { ListOrderController } from "./controllers/order/ListOrderController";
 import { RemoveItemController } from "./controllers/order/RemoveItemController";
 import { RemoveOrderController } from "./controllers/order/RemoveOrderController";
 import { SendOrderController } from "./controllers/order/SendOrderController";
@@ -72,5 +73,8 @@ router.delete(
 
 //enviando pedido
 router.put("/order/send", isAuthenticated, new SendOrderController().handle);
+
+//Pedidos
+router.get("/orders", isAuthenticated, new ListOrderController().handle);
 
 export { router };
