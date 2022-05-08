@@ -6,6 +6,7 @@ import { CreateCategoryController } from "./controllers/category/CreateCategoryC
 import { ListCategoryController } from "./controllers/category/ListCategoryController";
 import { AddItemController } from "./controllers/order/AddItemController";
 import { CreateOrderController } from "./controllers/order/CreateOrderController";
+import { DetailOrderController } from "./controllers/order/DetailOrderController";
 import { ListOrderController } from "./controllers/order/ListOrderController";
 import { RemoveItemController } from "./controllers/order/RemoveItemController";
 import { RemoveOrderController } from "./controllers/order/RemoveOrderController";
@@ -76,5 +77,12 @@ router.put("/order/send", isAuthenticated, new SendOrderController().handle);
 
 //Pedidos
 router.get("/orders", isAuthenticated, new ListOrderController().handle);
+
+//Detalhes do pedido
+router.get(
+  "/orders/details",
+  isAuthenticated,
+  new DetailOrderController().handle
+);
 
 export { router };
