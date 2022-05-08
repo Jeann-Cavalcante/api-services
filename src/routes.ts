@@ -8,6 +8,7 @@ import { AddItemController } from "./controllers/order/AddItemController";
 import { CreateOrderController } from "./controllers/order/CreateOrderController";
 import { RemoveItemController } from "./controllers/order/RemoveItemController";
 import { RemoveOrderController } from "./controllers/order/RemoveOrderController";
+import { SendOrderController } from "./controllers/order/SendOrderController";
 import { CreateProductController } from "./controllers/product/CreateProductController";
 import { ListbyCategoryController } from "./controllers/product/ListbyCategoryController";
 import { AuthUserController } from "./controllers/user/AuthUserController";
@@ -68,5 +69,8 @@ router.delete(
   isAuthenticated,
   new RemoveItemController().handle
 );
+
+//enviando pedido
+router.put("/order/send", isAuthenticated, new SendOrderController().handle);
 
 export { router };
